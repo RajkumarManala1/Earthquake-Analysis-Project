@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "Earthquake Events API Data to Silver Layer Processing"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f130fb1e-b07e-8048-4b86-cee973f5550a"
+  }
+}
