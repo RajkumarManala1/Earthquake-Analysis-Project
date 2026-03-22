@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "Structured Table data to Gold Processing"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5da0ef4a-12d3-8c0e-43c9-78d918bb078f"
+  }
+}
