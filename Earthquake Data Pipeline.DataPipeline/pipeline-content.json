@@ -1,0 +1,108 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "ecb9670d-d882-4c8d-a471-e2a1df525958",
+          "workspaceId": "f857c122-c562-4863-a947-3bc5f1cab0bc",
+          "parameters": {
+            "start_date": {
+              "value": {
+                "value": "@formatDateTime(adddays(utcNow(), -1),'yyyy-MM-dd')",
+                "type": "Expression"
+              },
+              "type": "string"
+            },
+            "end_date": {
+              "value": {
+                "value": "@formatDateTime(utcnow(),'yyyy-MM-dd')",
+                "type": "Expression"
+              },
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Bronze Notebook",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "73f5550a-cee9-4b86-8048-b07ef130fb1e",
+          "workspaceId": "f857c122-c562-4863-a947-3bc5f1cab0bc",
+          "parameters": {
+            "start_date": {
+              "value": {
+                "value": "@formatDateTime(adddays(utcNow(), -1),'yyyy-MM-dd')",
+                "type": "Expression"
+              },
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Silver Notebook",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "Bronze Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "5da0ef4a-12d3-8c0e-43c9-78d918bb078f",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "start_date": {
+              "value": "@formatDateTime(adddays(utcNow(), -1),'yyyy-MM-dd')",
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Gold Notebook",
+        "dependsOn": [
+          {
+            "activity": "Silver Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ],
+    "variables": {
+      "start_date": {
+        "type": "String"
+      }
+    }
+  }
+}
