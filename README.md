@@ -179,7 +179,7 @@ Each earthquake event in the Gold layer contains:
 
 **Rajkumar Manala**
 - [GitHub](https://github.com/RajkumarManala1)
-- [LinkedIn](https://linkedin.com/in/rajkumarmanala) *(update with your actual LinkedIn URL)*
+- [LinkedIn](https://www.linkedin.com/in/raj-kumar-manala-ab1b78134)
 
 ---
 
